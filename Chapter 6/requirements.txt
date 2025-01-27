@@ -1,0 +1,7 @@
+text
+langchain
+langchain-openai
+langchain-prompts
+openai
+faiss-cpu
+pydantic

@@ -1,0 +1,34 @@
+"""
+Example 6: MapReduce Chain
+"""
+from langchain.chains import MapReduceChain
+from langchain.prompts import PromptTemplate
+from langchain.llms import OpenAI
+from langchain.document_loaders import TextLoader
+import os
+
+# Load OpenAI API key
+openai_api_key = os.getenv("OPENAI_API_KEY", "your_openai_api_key")
+
+# Load documents
+loader = TextLoader("path/to/your/documents.txt")
+documents = loader.load()
+
+# Initialize LLM
+llm = OpenAI(temperature=0.9, openai_api_key=openai_api_key)
+
+# Define map and reduce prompts
+map_prompt = PromptTemplate(template="Summarize this text: {text}", input_variables=["text"])
+reduce_prompt = PromptTemplate(template="Combine these summaries: {text}", input_variables=["text"])
+
+# Create the MapReduce chain
+map_reduce_chain = MapReduceChain.from_params(
+    map_prompt=map_prompt,
+    combine_prompt=reduce_prompt,
+    llm=llm,
+    chunk_size=1000
+)
+
+# Run the chain
+result = map_reduce_chain.run(documents)
+print(result)
