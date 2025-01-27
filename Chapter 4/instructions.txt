@@ -1,0 +1,34 @@
+Explanation of Dependencies
+openai==1.3.7:
+
+For OpenAI GPT model integration, including chat completions and image generation.
+google-cloud-language==2.13.3, google-cloud-vision==3.7.2, google-cloud-translate==3.11.3:
+
+Google Cloud client libraries for sentiment analysis, vision, and translation tasks.
+langchain==0.2.0 and langchain-community==0.2.0:
+
+Core LangChain and community-supported components.
+langchain-anthropic:
+
+Integration with Anthropic's Claude model for generating responses.
+langchain-cohere and cohere==5.5.0:
+
+For interaction with Cohere's Command model for text generation.
+torch:
+
+Required for deep learning frameworks, especially for working with Hugging Face models like LLaMA.
+transformers==4.40.2:
+
+Hugging Face library for tokenizers, models, and pipelines.
+accelerate==0.30.1:
+
+For efficient deployment and model acceleration on GPUs.
+huggingface-hub:
+
+For authentication and interaction with Hugging Face's model hub.
+
+Installation Instructions
+Save the above requirements.txt file.
+Use the following command to install all dependencies
+
+pip install -r requirements.txt
